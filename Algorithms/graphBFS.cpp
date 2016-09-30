@@ -41,7 +41,6 @@ void bfs(int s) {
         {
             if(vis[ v[ p ][ i ] ] == false)
             {
-        //setting the level of each node with an increment in the level of parent node
                 level[ v[ p ][ i ] ] = level[ p ]+1;                 
                  q.push(v[ p ][ i ]);
                  vis[ v[ p ][ i ] ] = true;

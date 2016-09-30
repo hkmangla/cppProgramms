@@ -1,42 +1,30 @@
 #include<iostream>
 #include<set>
+#include<vector>
 using namespace std;
+vector<int> digit;
+long long mem[20][2][2422][(1<<9)+4];
+long long digitDp(int index, int )
+long long solve(long long n){
+	if(n==0)
+	{
+		digit.push_back(n);
+	}
+	else{
+		while(n!=0){
+			digit.push_back(n%10);
+			n/=10;
+		}
+	}
+	return digitDp(0,1,0,0);
+}
 int main(){
 	long long int l,q,k;
 	long long int t;cin>>t;
 	while(t--){
 	cin>>l>>q>>k;
-	int ans = 0;
-	for(int i=l;i<=q;i = i + 1)
-	{
-		set<int> s;
-		for(int j = 1;j<10;j++)
-		{
-			if(i%j == 0)
-				s.insert(j);
-		}
-		int n = i;
-		int count = 0;
-		set<int> digit;
-		while(n){
-			digit.insert(n%10);			
-			n/=10;
-		}
-		for(set<int>::iterator it = digit.begin(); it!=digit.end();++it){
-			// cout<<*it<<endl;
-			if(*it == 2){
-		if(s.find(*it) != s.end())
-				count++;
-			}
-		}
-		// if(count == 2)
-		// cout<<i<<" "<<count<<endl;
-		if(count == 1){
-					// cout<<i<<" "<<count<<endl;
-			ans ++;
-		}
-		
-	}
+	// cout<<(1<<9)<<endl;
+	long long ans == solve(l) - solve(q-1);
 	cout<<ans<<endl;
 }
 }
