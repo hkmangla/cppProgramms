@@ -1,0 +1,14 @@
+SQUARE WAVEFORM:            
+DA00: MOV DX, PORTB
+      MOV AL, 00H        ;outport 00 for 0V level
+      CALL OUTPUT
+      MOV AL, 0FFH        
+      CALL OUTPUT        
+      JMP DA00
+    ;routine to output digital value
+OUTPUT: OUT DX, AL
+    CALL DELAY
+    RET
+DELAY: MOV CX,0FFH     ;to vary the frequency alter the delay count
+LUP1: LOOP LUP1
+      RET

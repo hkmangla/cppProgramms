@@ -15,10 +15,11 @@ public:
 
 int main(){
 	Point P1,P2,P3;
-	cout<<"Enter coordinates for P1: ";
+	cout<<"\n\nEnter coordinates for P1: ";
 	cin>>P1.x>>P1.y;
 	cout<<"Enter coordinates for P2: ";
 	cin>>P2.x>>P2.y;
 	P3 = P1.addPoint(P2);
 	cout<<"Coordinates of P1+P2 are: "<<P3.x<<" "<<P3.y<<endl;
+
 }

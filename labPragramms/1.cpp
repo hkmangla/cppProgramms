@@ -9,10 +9,10 @@ double power(double n, int p=2){
 }
 int main(int argc, char const *argv[])
 {
-	cout<<"Enter value of n and p"<<endl;
+	cout<<"\n\nEnter value of n and p"<<endl;
 	double n; int p;
 	cin>>n>>p;
 	cout<<"Using power function without p argument i.e. power(n): "<<power(n)<<endl;
-	cout<<"Using power function with p argument i.e. power(n,p): "<<power(n,p)<<endl;
+	cout<<"Using power function with p argument i.e. power(n,p): "<<power(n,p)<<endl<<"\n";
 	return 0;
 }
