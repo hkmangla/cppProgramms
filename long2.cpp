@@ -1,70 +1,48 @@
 #include "bits/stdc++.h"
 using namespace std;
+int n;
+bitset<501> dp[501][40];
 
-vector<int> tree[50002];
-int ans,n,l,r;
-int a[50002];
-bool visited[50002];
-
-void dfs(int v, int parent, int count){
-	// ans += count;
-	// cout<<ans<<endl;
-	// cout<<"count at "<<v<<" is: "<<count<<endl;
-	visited[v] = true;
-	// path.push_back(v);
-	// for(int i=0;i<path.size();i++)
-	// 	cout<<path[i]<<" ";
-	// cout<<"---->"<<count;
-	if(count >= l && count <= r) ans ++;
-	// cout<<endl;
-	for(int i=0;i<tree[v].size();i++){
-		int u = tree[v][i];
-		// if(count >= l && count <= r) ans++;		
-		if(!visited[u]){
-			if(parent != -1){
-				if(a[parent] < a[v] && a[v] > a[u])
-					dfs(u,v,count+1);
-				else
-					dfs(u,v,count);
-			}
-			else{
-				dfs(u,v,count);
-			}
-		}
-	}
-}
-void init(){
-	for(int i=0;i<=n;i++)
-	{
-		tree[i].clear();
-		visited[i] = false;
-	}
-}
 int main(int argc, char const *argv[])
-{
-	int t; cin>>t;
-	while(t--){
-		cin>>n;
-		cin>>l>>r;
-		init();
-		for(int i=0;i<n;i++)
-			cin>>a[i+1];
-		ans = 0;
-		for(int i=0;i<n-1;i++){
-			int x,y; cin>>x>>y;
-			tree[x].push_back(y);
-			tree[y].push_back(x);
+{	
+	scanf("%d",&n);
+	int x;
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			scanf("%d",&x);
+			dp[i][0][j] = x;
 		}
-		// vector<int> path;
-		for(int i=1;i<=n;i++)
-		{
-			// cout<<"Path from node "<<i<<":"<<endl;
-			dfs(i,-1,0);
-			// cout<<endl<<endl;
-			for(int i=1;i<=n;i++)
-			visited[i] = false;			
+	}
+	for(int t=1;t<33;t++){
+		for(int i=0;i<n;i++){
+			for(int j=0;j<n;j++){
+				if(dp[i][t-1][j]){
+					dp[i][t] = dp[i][t] | dp[j][t-1];
+				}
+			}
 		}
-		cout<<ans/2<<endl;
+	}
+	int q; scanf("%d",&q);
+	while(q--){
+		int id,k; scanf("%d",&k);scanf("%d",&id);
+		id --;
+		bitset<501> ans;
+		ans[id] = 1;
+		for(int t=31;t>=0;t--){
+			if(k & (1 << t)){	
+				bitset<501> new_ans;
+				for(int j=0;j<n;j++){
+					if(ans[j]){
+						new_ans = new_ans | dp[j][t];
+					}
+				}
+			ans = new_ans;
+			}
+		}
+		printf("%d\n", ans.count());
+		for(int i=0;i<n;i++) if(ans[i]) printf("%d ",i+1);
+		if(ans.count() == 0) printf("-1");
+		printf("\n");
 	}
 	return 0;
 }

@@ -1,0 +1,25 @@
+Designed by: Hemant Mangla
+
+
+
+								Problem loading page - Mozilla Firefox
+  ________________________
+ / Problem loading page * \ Problem loading page * | + 
+/						   \_______________________|____________________________________________________________
+----------------------------------------------------------------------------------------- ---------------------
+<- |@| https://www.hackerearth.com/november-circuits/algorithm/mike-and-fraud/			| |					  |
+----------------------------------------------------------------------------------------- ---------------------
+
+
+			Server not found 
+			______________________________
+	
+			Firefox can't find the server at www.hackerearth.com.
+
+			* Check the address for typing errors such as ww.example.com instead of www.example.com
+			* If you are unable to load any pages, check your computer's network connection.
+			* If your computer or network is protected by a firewall or proxy, make sure that Firefox is permitted to access the Web. 		
+				    							 ____________
+								    			|            | 
+							    				| Try Again  |
+					    						|____________|	
