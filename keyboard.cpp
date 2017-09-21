@@ -122,8 +122,8 @@ public:
 				lastposj[currentCursori-1] += (lastposj[currentCursori]+1);
 				for(int i=currentCursori;i<maxdownCursor;i++){
 					for(int j=0;j<=lastposj[currentCursori+1];j++)
-						outputString[i][j] = outputString[i][j+1];
-					lastposj[currentCursori] = lastposj[currentCursori+1];
+						outputString[i][j] = outputString[i+1][j];
+					lastposj[i] = lastposj[i+1];
 				}
 				maxdownCursor --;
 				currentCursori --;
